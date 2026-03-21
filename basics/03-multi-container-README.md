@@ -1,4 +1,3 @@
-
 # basics/03-multi-container.yaml
 
 # You wrote a sidecar pattern - nginx web server + almalinux helper! Great concept!
