@@ -22,6 +22,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: frontend
+  namespace: roboshop
   labels:
     project: roboshop          # ← PROJECT TAG
     component: frontend        # ← APP PART TAG  
