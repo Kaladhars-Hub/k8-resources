@@ -7,10 +7,10 @@
 
 frontend Pod ← Tagged with 4 Labels (like Instagram hashtags)
 
-# project: roboshop (Which app?)
-# component: frontend (Which part?)
-# environment: dev (Dev/Prod?)
-# version: v1 (v1/v2?)
+├── project: roboshop (Which app?)
+├── component: frontend (Which part?)
+├── environment: dev (Dev/Prod?)
+└── version: v1 (v1/v2?)
 
 
 ## 📋 EXACT YAML Created (Instructor's Code)
