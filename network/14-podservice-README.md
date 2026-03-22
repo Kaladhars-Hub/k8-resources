@@ -1,10 +1,3 @@
-Great—this is exactly how you move from “learning” to **real DevOps understanding** 👍
-
-I’ll do two things for you:
-
-1. Show you **how to prove Service → Pod routing (real skill)**
-2. Give you a **final clean README with your doubt included properly**
-
 ---
 
 # 🔥 1. How to PROVE Service is hitting the correct Pod
