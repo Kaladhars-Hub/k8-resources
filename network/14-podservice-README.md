@@ -189,7 +189,7 @@ selector:
 
 ```bash
 # Deploy Pod
-kubectl apply -f basics/07-service-demo.yaml -n roboshop
+kubectl apply -f network/14-podservice.yaml -n roboshop
 
 # Verify labels
 kubectl get pods -n roboshop --show-labels
