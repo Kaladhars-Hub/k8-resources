@@ -185,6 +185,20 @@ Source: 0.0.0.0/0
 
 👉 Without this → NodePort will NOT work
 
+
+## ⚠️ Important AWS Insight (Very Important)
+
+In AWS-based Kubernetes setups:
+
+- NodePort is exposed on **Worker Nodes**, not the EC2 instance used for SSH
+- Security Group must be updated on **Worker Node EC2 instances**
+
+Fix:
+- Identify worker node EC2 instances
+- Open NodePort (30000–32767) in their security group
+
+Without this → NodePort will NOT work
+
 ---
 
 ## 📦 Git Workflow
