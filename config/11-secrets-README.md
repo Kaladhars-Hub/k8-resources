@@ -45,6 +45,7 @@ data:
 
 
 🧪 Test Commands (Copy-Paste)
+
 Bash
 # 1. Create the Secret
 kubectl apply -f config/11-secrets.yaml -n roboshop
@@ -57,13 +58,19 @@ kubectl describe secret pod-secret -n roboshop
 
 # 4. Decode it to see the real value
 kubectl get secret pod-secret -n roboshop -o jsonpath='{.data.db_password}' | base64 --decode
-📊 The "Secret" Comparison Table
-Scenario	Use a ConfigMap?	Use a Secret?
-Storing a Database URL	✅ Yes	❌ No
-Storing a Database Password	❌ No	✅ Yes
-Storing the App Theme (Blue/Red)	✅ Yes	❌ No
-Storing an AWS Access Key	❌ No	✅ Yes
+
+## 📊 ConfigMap vs Secret – Use Case Table
+
+| Scenario                          | Use a ConfigMap? | Use a Secret? |
+|----------------------------------|------------------|----------------|
+| Storing a Database URL           | ✅ Yes           | ❌ No          |
+| Storing a Database Password      | ❌ No            | ✅ Yes         |
+| Storing the App Theme (Blue/Red) | ✅ Yes           | ❌ No          |
+| Storing an AWS Access Key        | ❌ No            | ✅ Yes         |
+| Storing a Non-sensitive Port (80)| ✅ Yes           | ❌ No          |
+
 🚀 Complete Workflow
+
 Bash
 # 1. Deploy the secret
 kubectl apply -f config/11-secrets.yaml -n roboshop
@@ -81,6 +88,7 @@ Status: ⏳ Vault Created → 🔐 Data Encoded → 🚀 Ready for Secure Inject
 ---
 
 ### 🔍 **Important Note for your Interview**
+
 **Question:** *"Is Base64 encoding the same as Encryption?"*
 **Your Answer:** "No. Base64 is just **encoding** (scrambling the text). Anyone with the `base64` command can decode it. In a real production environment, we should use **KMS (Key Management Service)** or **HashiCorp Vault** to actually *encrypt* the data at rest."
 
