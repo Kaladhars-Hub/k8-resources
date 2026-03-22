@@ -38,11 +38,14 @@ data:
 
 ## 🤔 ConfigMap vs. Secret (SIMPLE)
 
+
+
 | Feature       | ConfigMap 📖          | Secret 🔐                          |
 |---------------|----------------------|------------------------------------|
 | Data Type     | Plain Text (Visible) | Base64 Encoded (Hidden)            |
 | Best For      | App Settings, URLs   | Passwords, API Keys, Tokens        |
 | Security      | Low                  | Medium (Hidden from "screen eyes") |
+
 
 
 🧪 Test Commands (Copy-Paste)
