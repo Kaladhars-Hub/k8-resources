@@ -1,15 +1,3 @@
-## 📊 Comparison: Why we use `envFrom`
-
-| Scenario | Old Way (`env`) | New Way (`envFrom`) |
-| :--- | :--- | :--- |
-| **Bulk Scaling** | Type 100+ lines of YAML. | Type **3 lines** of YAML. |
-| **Updates** | Edit every single Pod file. | Edit **ONE** ConfigMap file. |
-| **Consistency** | Copy-paste variables everywhere. | All apps point to one central source. |
-
-> **DevOps Pro-Tip:** In a production environment like **RoboShop**, your 'User', 'Cart', and 'Shipping' services might all need the same `MONGO_URL`. Instead of typing it 3 times, you create one ConfigMap and use `envFrom` in all three services!
-
-
-
 This is the "Magic Moment" in Kubernetes. You have the Dictionary (ConfigMap) and now you are going to create the Reader (The Pod).
 
 Instead of typing every single variable inside the Pod, we use a single command called envFrom. This tells the Pod: "Go to that ConfigMap, take everything inside it, and turn it into environment variables for me."
@@ -110,3 +98,13 @@ If you try to create this Pod **before** you create the ConfigMap, the Pod will 
 
 **Why?** Because the Pod is looking for its "Instruction Manual" (ConfigMap) and can't find it. Always create your ConfigMaps/Secrets **BEFORE** the Pods that need them.
 
+
+## 📊 Comparison: Why we use `envFrom`
+
+| Scenario | Old Way (`env`) | New Way (`envFrom`) |
+| :--- | :--- | :--- |
+| **Bulk Scaling** | Type 100+ lines of YAML. | Type **3 lines** of YAML. |
+| **Updates** | Edit every single Pod file. | Edit **ONE** ConfigMap file. |
+| **Consistency** | Copy-paste variables everywhere. | All apps point to one central source. |
+
+> **DevOps Pro-Tip:** In a production environment like **RoboShop**, your 'User', 'Cart', and 'Shipping' services might all need the same `MONGO_URL`. Instead of typing it 3 times, you create one ConfigMap and use `envFrom` in all three services!
