@@ -68,7 +68,6 @@ duration=120hrs
 trainer=Elonmusk
 
 ## 📊 Comparison: Why we use `envFrom`
-
 | Scenario | Old Way (`env`) | New Way (`envFrom`) |
 | :--- | :--- | :--- |
 | **Bulk Scaling** | Type 100+ lines of YAML. | Type **3 lines** of YAML. |
@@ -106,3 +105,4 @@ Status: ⏳ Pod Created → 🔗 Linked to ConfigMap → ✅ Proof in Env → Gi
 If you try to create this Pod **before** you create the ConfigMap, the Pod will fail with a **`CreateContainerConfigError`**. 
 
 **Why?** Because the Pod is looking for its "Instruction Manual" (ConfigMap) and can't find it. Always create your ConfigMaps/Secrets **BEFORE** the Pods that need them.
+
