@@ -1,21 +1,22 @@
-A Secret is exactly like a ConfigMap, but with one major difference: The data is encoded. If someone glances at your screen, they won't see password: Admin123; they will see a scrambled string like QWRtaW4xMjM=.
+A Secret is exactly like a ConfigMap, but with one major difference: The data is encoded. If someone glances at your screen, they won't see password: Admin123; they will see a scrambled string like YWRtaW4xMjMK=.
 
 🛠️ The Secret Object (config/11-secrets.yaml)
 In Kubernetes, we use Base64 encoding for Secrets.
 
 To encode your password: echo -n 'Admin123' | base64
 
-To decode it: echo -n 'QWRtaW4xMjM=' | base64 --decode
+To decode it: echo -n 'YWRtaW4xMjMK=' | base64 --decode
 
-YAML
 apiVersion: v1
 kind: Secret
 metadata:
   name: pod-secret
-type: Opaque                  # ← Standard type for passwords/keys
+type: Opaque
+# Data must be Base64 encoded.
 data:
-  db_password: QWRtaW4xMjM=    # ← 'Admin123' encoded in Base64
-  api_key: MWYyYjNjNGQ=       # ← '1f2b3c4d' encoded in Base64
+  username: "YWRtaW4K"       # ← 'admin' + newline
+  password: "YWRtaW4xMjMK"    # ← 'admin123' + newline
+
 11. Secrets (The Vault) - Simple README 🎯
 Save as config/11-secrets-README.md
 
@@ -32,7 +33,16 @@ metadata:
   name: pod-secret
 type: Opaque
 data:
-  db_password: QWRtaW4xMjM=   # ← Encoded!
+  username: "YWRtaW4K"
+  password: "YWRtaW4xMjMK"   # ← Encoded!
+
+
+## 🧪 Base64 Encoding Difference
+
+| Command                     | Result   | Note                                |
+|----------------------------|----------|-------------------------------------|
+| `echo "admin" \| base64`    | YWRtaW4K | Includes a hidden newline (`\n`)     |
+| `echo -n "admin" \| base64` | YWRtaW4= | Clean string (Recommended)           |
 
 
 ## 🤔 ConfigMap vs. Secret (SIMPLE)
@@ -92,3 +102,8 @@ Status: ⏳ Vault Created → 🔐 Data Encoded → 🚀 Ready for Secure Inject
 **Question:** *"Is Base64 encoding the same as Encryption?"*
 **Your Answer:** "No. Base64 is just **encoding** (scrambling the text). Anyone with the `base64` command can decode it. In a real production environment, we should use **KMS (Key Management Service)** or **HashiCorp Vault** to actually *encrypt* the data at rest."
 
+### **Quick Check for you:**
+When you run the decode command:
+`kubectl get secret pod-secret -n roboshop -o jsonpath='{.data.password}' | base64 --decode`
+
+If the prompt moves to a **new line** immediately, it means your password has that "hidden enter" (the `K` at the end). If your app starts failing logins later, remember this moment!
