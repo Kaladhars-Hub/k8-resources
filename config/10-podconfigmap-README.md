@@ -66,11 +66,13 @@ kubectl exec -it pod-config-reader -n roboshop -- env | grep -E "course|trainer|
 course=DevSecOps with AWS
 duration=120hrs
 trainer=Elonmusk
+
 💡 Why use envFrom? (REAL USE)
-Scenario	Old Way (env)	New Way (envFrom)
-Adding 50 variables	Type 100+ lines of YAML.	Type 3 lines of YAML.
-Changing Trainer	Edit every Pod YAML file.	Edit ONE ConfigMap file.
-Multiple Apps	Copy-paste variables everywhere.	All apps point to one central ConfigMap.
+
+Scenario,Old Way (env),New Way (envFrom)
+Adding 50 variables,Type 100+ lines of YAML.,Type 3 lines of YAML.
+Changing Trainer,Edit every Pod YAML file.,Edit ONE ConfigMap file.
+Multiple Apps,Copy-paste variables everywhere.,All apps point to one central ConfigMap.
 
 DEVOPS TRUTH: 
 Using ConfigMaps with envFrom makes your code 
