@@ -71,9 +71,9 @@ trainer=Elonmusk
 
 | Scenario | Old Way (`env`) | New Way (`envFrom`) |
 | :--- | :--- | :--- |
-| **Adding 50 variables** | Type 100+ lines of YAML. | Type **3 lines** of YAML. |
-| **Changing a Setting** | Edit every single Pod file. | Edit **ONE** ConfigMap file. |
-| **Multiple Apps** | Copy-paste variables everywhere. | All apps point to one central source. |
+| **Bulk Scaling** | Type 100+ lines of YAML. | Type **3 lines** of YAML. |
+| **Updates** | Edit every single Pod file. | Edit **ONE** ConfigMap file. |
+| **Consistency** | Copy-paste variables everywhere. | All apps point to one central source. |
 
 > **DevOps Pro-Tip:** In a production environment like **RoboShop**, your 'User', 'Cart', and 'Shipping' services might all need the same `MONGO_URL`. Instead of typing it 3 times, you create one ConfigMap and use `envFrom` in all three services!
 
