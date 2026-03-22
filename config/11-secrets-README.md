@@ -67,7 +67,7 @@ kubectl get secrets -n roboshop
 kubectl describe secret pod-secret -n roboshop
 
 # 4. Decode it to see the real value
-kubectl get secret pod-secret -n roboshop -o jsonpath='{.data.db_password}' | base64 --decode
+kubectl get secret pod-secret -n roboshop -o jsonpath='{.data.password}' | base64 --decode
 
 ## 📊 ConfigMap vs Secret – Use Case Table
 
