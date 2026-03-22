@@ -67,7 +67,6 @@ course=DevSecOps with AWS
 duration=120hrs
 trainer=Elonmusk
 
-## 📊 Comparison: Why we use `envFrom`
 | Scenario | Old Way (`env`) | New Way (`envFrom`) |
 | :--- | :--- | :--- |
 | **Bulk Scaling** | Type 100+ lines of YAML. | Type **3 lines** of YAML. |
