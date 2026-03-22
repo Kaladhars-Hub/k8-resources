@@ -1,5 +1,3 @@
-A Service is the "Permanent Phone Number" for your Pods. Since Pods die and get new IP addresses all the time, the Service stays the same so users can always find the app.
-
 # 13. Service (The Permanent Address) 📞🌐
 
 **Purpose:** Learn how to create a **Service** to give your Pods a stable IP and Load Balancer.
@@ -79,3 +77,5 @@ Status: ⏳ Service Created → 🔗 Selector Matched → ✅ Traffic Ready → 
 If you run `kubectl describe svc nginx` and the **Endpoints** section is **empty (none)**, it means your Service is "lonely." It couldn't find any Pods with the labels `project: roboshop`, `component: frontend`, and `environment: dev`. 
 
 **Always make sure your Pod Labels and Service Selectors match exactly!**
+
+A Service is the "Permanent Phone Number" for your Pods. Since Pods die and get new IP addresses all the time, the Service stays the same so users can always find the app.
