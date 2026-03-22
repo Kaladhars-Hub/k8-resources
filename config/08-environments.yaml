@@ -1,0 +1,13 @@
+kind: Pod                       # ← Type of object
+apiVersion: v1                  # ← API Version
+metadata:
+  name: env-demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:                        # ← THE SETTINGS START HERE
+    - name: course              # Key
+      value: kubernetes         # Value
+    - name: trainer             # Key
+      value: Elonmusk           # Value
