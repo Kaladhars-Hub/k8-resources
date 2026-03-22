@@ -1,10 +1,3 @@
-You’ve already done great work—this just needed **clean structure + small fixes + consistency**. I reorganized it so it reads like a **professional DevOps README**.
-
----
-
-# ✅ Clean & Organized Version
-
-````markdown
 # 15. NodePort Service (External Access) 🌍
 
 ## 🎯 Purpose
