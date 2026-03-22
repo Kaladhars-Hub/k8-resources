@@ -14,7 +14,10 @@ data:                           # ← THE DICTIONARY
   course: "DevSecOps with AWS"
   duration: "120hrs"
   trainer: "Elonmusk"
+
+
 🤔 Why use a ConfigMap? (SIMPLE)
+
 Think of ConfigMap = A GLOBAL SETTINGS FILE.
 
 In Lab 08 (Env), the settings were "Tattooed" on the Pod. To change them, 
@@ -23,7 +26,10 @@ you had to kill the Pod.
 In Lab 09 (ConfigMap), the settings are in a "Shared Notebook." 
 Multiple Pods can read from this same notebook. If you update the notebook, 
 you don't have to rewrite the Pod code!
-🧪 Test Commands (Copy-Paste)
+
+
+🧪 Test Commands 
+
 Bash
 # 1. Create the ConfigMap
 kubectl apply -f config/02-configmap.yaml
@@ -47,7 +53,11 @@ Data
 course:   DevSecOps with AWS
 duration: 120hrs
 trainer:  Elonmusk
+
+
 🚀 The Complete Workflow (Moving to Config & Security)
+
+
 Bash
 # 1. Create the directory if it doesn't exist
 mkdir -p config
@@ -71,6 +81,12 @@ git push origin main
 
 Status: ⏳ Create ConfigMap → Verify Dictionary → Ready for Pod Injection! 🚀
 
+🤔 Why kind: ConfigMap? (SIMPLE)
+Think of ConfigMap = A GLOBAL SETTINGS FILE.
+
+- It doesn't run code.
+- It doesn't use CPU or RAM.
+- It just sits in the cluster holding information for Pods to read.
 
 ---
 
