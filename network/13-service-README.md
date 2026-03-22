@@ -41,6 +41,8 @@ kubectl get svc -n roboshop
 
 # 4. Describe the Service (Check the "Endpoints" section)
 kubectl describe svc nginx -n roboshop
+
+
 📊 4. The "Port" Comparison Table
 
 | Port Type       | Description                                      |
