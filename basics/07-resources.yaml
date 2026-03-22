@@ -1,17 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-   name: resources
+  name: resources-demo
+  namespace: roboshop
 spec:
   containers:
   - name: nginx
     image: nginx
     resources:
-    # soft limit
-     requests:       # ← THE RESERVATION (Min needed)
-     memory: "68Mi"
-     cpu: "100m"     # 1/10th of a CPU core
-     # hard limit 
-     limits:         # ← THE CEILING (Max allowed)
+      requests:          # Bucket 1: The Reservation
+        memory: "68Mi"
+        cpu: "100m"
+      limits:            # Bucket 2: The Ceiling
         memory: "100Mi"
         cpu: "120m"
