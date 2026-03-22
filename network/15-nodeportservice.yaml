@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: nginx-np   # Name of the Service (used to access internally)
+
+spec:
+  type: NodePort   # Exposes service outside the cluster (external access)
+
+  selector:        # MUST match Pod labels (very important)
+    project: roboshop
+    component: frontend
+    environment: dev
+    purpose: node-port   # ⚠️ Pod must have this label
+
+  ports:
+    - protocol: TCP      # Network protocol
+      port: 80           # Service port (internal to cluster)
+      targetPort: 80     # Container port (inside Pod)
+
+      # NodePort is auto-assigned (30000–32767)
+      # You can also define manually like:
+      # nodePort: 30007
