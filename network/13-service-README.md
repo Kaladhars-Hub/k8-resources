@@ -18,14 +18,17 @@ spec:
     - protocol: TCP
       port: 80             # Service Port (The "Outside" door)
       targetPort: 80       # Container Port (The "Inside" door)
+
 🤔 2. Why do we need a Service? (SIMPLE)
-Plaintext
+
 | Fact                   | Problem                               | Solution: Service 📞 |
 | :--------------------- | :------------------------------------ | :------------------ |
 | **Pods are Mortal** | They die and get new IPs constantly.  | Stays alive forever. |
 | **Pods are many** | Which one of the 10 Pods do I call?   | Acts as a Load Balancer. |
 | **Communication** | Hard to track 10.0.0.5, 10.0.0.12...  | Use the name 'nginx'. |
-🧪 3. Test Commands (Copy-Paste)
+
+🧪 3. Test Commands 
+
 Bash
 # 1. Create a Pod with matching labels FIRST (Important!)
 kubectl run nginx-pod --image=nginx -l project=roboshop,component=frontend,environment=dev -n roboshop
@@ -39,13 +42,16 @@ kubectl get svc -n roboshop
 # 4. Describe the Service (Check the "Endpoints" section)
 kubectl describe svc nginx -n roboshop
 📊 4. The "Port" Comparison Table
-Plaintext
+
 | Port Type       | Description                                      |
 | :-------------- | :----------------------------------------------- |
 | **port** | The port number exposed by the Service itself.   |
 | **targetPort** | The port the application is listening on (Pod).  |
 | **nodePort** | (Optional) A port on the physical EC2 instance. |
+
+
 🚀 5. Complete Workflow
+
 Bash
 # 1. Ensure the 'network' folder exists
 mkdir -p network
@@ -61,19 +67,24 @@ git pull origin main --rebase
 git add network/13-service.*
 git commit -m "13-service: added stable networking for frontend"
 git push origin main
+
+
 🔍 6. Interview Power Answer
-Plaintext
+
 Question: "How does a Service know which Pods to send traffic to?"
 
 Your Answer: "It uses 'Selectors' and 'Labels'. The Service looks for any Pod 
 in the namespace that has labels matching its selector. If a Pod matches, 
 its IP is added to the Service's 'Endpoints' list automatically."
+
+
 Status: ⏳ Service Created → 🔗 Selector Matched → ✅ Traffic Ready → Git! 🚀
 
 
 ---
 
 ### **Important Note for your Lab:**
+
 If you run `kubectl describe svc nginx` and the **Endpoints** section is **empty (none)**, it means your Service is "lonely." It couldn't find any Pods with the labels `project: roboshop`, `component: frontend`, and `environment: dev`. 
 
 **Always make sure your Pod Labels and Service Selectors match exactly!**
