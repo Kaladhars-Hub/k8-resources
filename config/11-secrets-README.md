@@ -34,11 +34,17 @@ metadata:
 type: Opaque
 data:
   db_password: QWRtaW4xMjM=   # ← Encoded!
+
+
 🤔 ConfigMap vs. Secret (SIMPLE)
-Feature	ConfigMap 📖	Secret 🔐
-Data Type	Plain Text (Visible)	Base64 Encoded (Hidden)
-Best For	App Settings, URLs	Passwords, API Keys, Tokens
-Security	Low (Anyone can read)	Medium (Hidden from "shoulder surfers")
+
+| Feature       | ConfigMap 📖          | Secret 🔐                          |
+| :------------ | :-------------------- | :--------------------------------- |
+| **Data Type** | Plain Text (Visible)  | Base64 Encoded (Hidden)            |
+| **Best For** | App Settings, URLs    | Passwords, API Keys, Tokens        |
+| **Security** | Low (Anyone can read) | Medium (Hidden from "screen eyes") |
+
+
 🧪 Test Commands (Copy-Paste)
 Bash
 # 1. Create the Secret
