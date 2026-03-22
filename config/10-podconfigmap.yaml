@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-   name: pod-config-reader
+  name: pod-config-reader
 spec:
   containers:
   - name: nginx
     image: nginx
-    envFrom:
-    - configMapRef:
-      name: pod-config   
+    envFrom:                 # ← THE KEY!
+    - configMapRef:          # ← Reference the Dictionary
+        name: pod-config     # ← From Lab 09
