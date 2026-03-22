@@ -15,7 +15,6 @@ This is the "Magic Moment" in Kubernetes. You have the Dictionary (ConfigMap) an
 Instead of typing every single variable inside the Pod, we use a single command called envFrom. This tells the Pod: "Go to that ConfigMap, take everything inside it, and turn it into environment variables for me."
 
 🛠️ The "Reader" Pod (config/10-pod-configmap.yaml)
-Copy this exactly into your config folder. Notice how clean it looks because the data is stored elsewhere!
 
 YAML
 apiVersion: v1
@@ -29,6 +28,7 @@ spec:
     envFrom:                 # ← THE MAGIC INSTRUCTION
     - configMapRef:          # ← "Look at a ConfigMap"
         name: pod-config     # ← The name of the Dictionary we made in 09
+      
 10. Pod with ConfigMap - Simple README 🎯
 Save as config/10-pod-configmap-README.md
 
