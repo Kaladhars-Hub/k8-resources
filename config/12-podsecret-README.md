@@ -142,3 +142,6 @@ A Pod can use Secrets by mounting them as environment variables or volumes. In t
 
 Status: 🔐 Secret Created → 📦 Injected into Pod → 🚀 Ready to Use
 
+#git add config/12-podsecret.yaml config/12-podsecret-README.md
+#git commit -m "12-podsecret: injected secrets into pod using envFrom"
+#git push origin main
