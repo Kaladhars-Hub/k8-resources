@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-   name: pod-ConfigMap
+   name: pod-config
    namespace: roboshop
 data:
    course: "DevSecOps with AWS"
