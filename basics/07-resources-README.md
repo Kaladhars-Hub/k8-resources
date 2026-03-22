@@ -176,3 +176,18 @@ EOF
 kubectl apply -f basics/07-resources-demo.yaml -n roboshop
 kubectl describe pod resources-demo -n roboshop | grep -A 10 resources
 ```
+
+
+## 🩺 Troubleshooting This File
+
+### Common Error: OOMKilled
+If you see `Status: OOMKilled`, it means the Nginx container tried to use more than **100Mi**.
+1. **Check:** `kubectl describe pod resources-demo -n roboshop`
+2. **Look for:** `Exit Code: 137`
+3. **Fix:** Increase `limits.memory` to `128Mi` and re-apply.
+
+### Common Error: Pending
+If the pod stays `Pending`:
+1. **Check:** `kubectl get nodes` to see if nodes are healthy.
+2. **Check:** `kubectl describe pod` for `FailedScheduling`.
+3. **Fix:** Your `requests.cpu: "100m"` might be too high for the remaining space on your nodes.
